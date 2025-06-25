@@ -9,8 +9,8 @@ const App = () => {
   // const { count } = useSelector((state: RootSate) => state.counter);
   // console.log(counter);
 
-  const handleIncrement = () => {
-    dispatch(increment());
+  const handleIncrement = (amount: number) => {
+    dispatch(increment({ amount: amount }));
   };
 
   const handleDecrement = () => {
@@ -20,7 +20,8 @@ const App = () => {
   return (
     <div>
       <h1>Counter with redux</h1>
-      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={() => dispatch(increment(5))}>Increment by 5</button>
+      <button onClick={() => handleIncrement(1)}>Increment</button>
       <div>{count}</div>
       <button onClick={handleDecrement}>Decrement</button>
     </div>
