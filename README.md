@@ -4,6 +4,21 @@ A simplified reference for learning Redux using Redux Toolkit with React and Typ
 
 ---
 
+## ⚙️ Installation & Setup (Step by Step)
+
+### 🔧 1. Create React + TypeScript App with Vite
+
+```bash
+npm create vite@latest my-app --template react-ts
+cd my-app
+```
+
+### 📦 2. Install Redux Toolkit and React-Redux
+
+```bash
+npm install @reduxjs/toolkit react-redux
+```
+
 ## 🔍 Why Use Redux?
 
 - Helps manage **global state** in large applications.
@@ -24,6 +39,30 @@ A simplified reference for learning Redux using Redux Toolkit with React and Typ
 | **Bidirectional Flow**  | Data goes back and forth between state and UI — harder to manage.                 |
 | **Redux Flow**          | Follows a clear one-way flow: UI → Action → Reducer → Store → UI update.          |
 | **Flux Architecture**   | A design pattern (by Facebook) that Redux is based on — uses unidirectional flow. |
+
+### 📁 3. Suggested Folder Structure
+
+```
+src/
+├── redux/
+│   ├── store.ts
+│   ├── features/
+│   │   └── counter/
+│   │       ├── counterSlice.ts
+│   │       └── hook.ts
+├── App.tsx
+```
+
+### 🧠 4. Summary of What Each File Does
+
+| File              | Purpose                                                      |
+| ----------------- | ------------------------------------------------------------ |
+| `store.ts`        | Creates the Redux store using `configureStore`.              |
+| `counterSlice.ts` | Creates a slice that includes state, reducers, and actions.  |
+| `hook.ts`         | Contains custom typed `useSelector` and `useDispatch` hooks. |
+| `App.tsx`         | UI component that connects to Redux using the custom hooks.  |
+
+---
 
 ---
 
