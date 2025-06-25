@@ -79,15 +79,3 @@ A simplified reference for learning Redux using Redux Toolkit with React and Typ
 - `createSlice`, `configureStore`, `Redux Toolkit`, `Typed Hooks`, `Immer`, `Flux`
 
 ---
-
-## 📌 Next Recommended Topics
-
-When moving forward, study the following:
-
-- `createAsyncThunk` for handling API calls
-- `middleware` for custom logic (e.g., logging, auth)
-- `RTK Query` for auto-handling data fetching and caching
-
----
-
-Let me know when ready to continue with the next step — this summary can be extended topic by topic as learning progresses.
