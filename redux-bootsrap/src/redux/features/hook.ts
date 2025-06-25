@@ -1,3 +1,4 @@
+// hook.ts
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootSate } from "../store";
 

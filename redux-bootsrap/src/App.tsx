@@ -1,3 +1,4 @@
+// App.ts
 import { decrement, increment } from "./redux/features/counter/counterSlice";
 import { useAppDispatch, useAppSelector } from "./redux/features/hook";
 
