@@ -1,15 +1,19 @@
+import TaskCard from "@/components/module/tasks/TaskCard";
 import { useAppSelector } from "@/redux/features/hook";
-import { selectFilter, selectTask } from "@/redux/features/task/taskSlice";
+import { selectTask } from "@/redux/features/task/taskSlice";
 
 const Task = () => {
   const tasks = useAppSelector(selectTask);
-  const filter = useAppSelector(selectFilter);
-  console.log(tasks);
-  console.log(filter);
+  // console.log(tasks);
 
   return (
-    <div>
-      <h1>This is task</h1>
+    <div className="mx-auto max-w-7xl px-5 mt-20">
+      <h1 className="font-bold">Task</h1>
+      <div className="space-y-5 mt-5">
+        {tasks.map((task) => (
+          <TaskCard task={task} />
+        ))}
+      </div>
     </div>
   );
 };
