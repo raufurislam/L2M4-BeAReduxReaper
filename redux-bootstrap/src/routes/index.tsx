@@ -1,5 +1,5 @@
 import App from "@/App";
-import tasks from "@/pages/tasks";
+import Task from "@/pages/Task";
 import User from "@/pages/User";
 import { createBrowserRouter } from "react-router";
 
@@ -12,11 +12,11 @@ const router = createBrowserRouter([
       {
         index: true,
         // path: "tasks",
-        Component: tasks,
+        Component: Task,
       },
       {
         path: "tasks",
-        Component: tasks,
+        Component: Task,
       },
       {
         path: "users",
