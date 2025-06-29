@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
   tasks: ITask[];
-  filter: "all" | "High" | "Medium" | "Low";
+  filter: "all" | "high" | "medium" | "low";
 }
 
 const initialState: InitialState = {
