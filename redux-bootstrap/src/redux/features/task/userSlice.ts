@@ -1,26 +1,21 @@
 import type { RootState } from "@/redux/store";
+import type { IUser } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface InitialState {
-  users: IUser[];
-}
-
-const initialState = {
+const initialState: { users: IUser[] } = {
   users: [],
 };
-
-type DraftState = Pick<IUser, "name">;
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    addUser: (state, actions: PayloadAction<IUser>) => {
-      const userData = createUser(actions.payload);
-      state.users.push(userData);
+    addUser: (state, action: PayloadAction<IUser>) => {
+      state.users.push(action.payload);
     },
-    removeUser: (state, actions: PayloadAction<string>) => {
-      state.users = state.users.filter((user) => user.id !== actions.payload);
+    removeUser: (state, action: PayloadAction<string>) => {
+      state.users = state.users.filter((user) => user.id !== action.payload);
     },
   },
 });
