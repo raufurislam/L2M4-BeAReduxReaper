@@ -1,7 +1,7 @@
 import type { RootState } from "@/redux/store";
 import type { ITask } from "@/types";
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
+import { removeUser } from "./userSlice";
 
 interface InitialState {
   tasks: ITask[];
@@ -23,18 +23,33 @@ const initialState: InitialState = {
   filter: "all",
 };
 
+type DraftTask = Pick<
+  ITask,
+  | "id"
+  | "isCompleted"
+  | "title"
+  | "description"
+  | "priority"
+  | "dueDate"
+  | "assignedTo"
+>;
+
+const createTask = (taskData: DraftTask): ITask => {
+  return {
+    ...taskData,
+    id: nanoid(),
+    isCompleted: false,
+    assignedTo: taskData.assignedTo ? taskData.assignedTo : null,
+  };
+};
+
 const taskSlice = createSlice({
   name: "task",
   initialState,
   reducers: {
-    addTask: (state, action: PayloadAction<ITask>) => {
-      const id = uuidv4();
-      const taskData = {
-        ...action.payload,
-        id,
-        isCompleted: false,
-      };
-      state.tasks.push(taskData);
+    addTask: (state, action: PayloadAction<DraftTask>) => {
+      const newTask = createTask(action.payload);
+      state.tasks.push(newTask);
     },
     toggleCompleteState: (state, action: PayloadAction<string>) => {
       console.log(action);
@@ -53,6 +68,13 @@ const taskSlice = createSlice({
     ) => {
       state.filter = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(removeUser, (state, action) => {
+      state.tasks.forEach((task) =>
+        task.assignedTo === action.payload ? (task.assignedTo = null) : task
+      );
+    });
   },
 });
 
