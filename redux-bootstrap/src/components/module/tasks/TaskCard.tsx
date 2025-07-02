@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
-import { useAppDispatch } from "@/redux/features/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/features/hook";
 import {
   deleteTask,
   toggleCompleteState,
 } from "@/redux/features/task/taskSlice";
+import { selectUsers } from "@/redux/features/task/userSlice";
 import type { ITask } from "@/types";
 import { Trash2 } from "lucide-react";
 
@@ -14,10 +15,13 @@ interface IProps {
 }
 
 export default function TaskCard({ task }: IProps) {
-  // console.log(task);
+  const users = useAppSelector(selectUsers);
+
+  const assignedUser = users.find((user) => user.id === task.assignedTo);
 
   const dispatch = useAppDispatch();
 
+  // console.log(task);
   return (
     <div className="border px-5 py-3 rounded-md">
       <div className="flex justify-between items-center">
@@ -49,6 +53,7 @@ export default function TaskCard({ task }: IProps) {
         </div>
       </div>
 
+      <p>Assign to- {assignedUser ? assignedUser.name : "No one"}</p>
       <p className="mt-5">{task.description}</p>
     </div>
   );

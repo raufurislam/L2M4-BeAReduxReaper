@@ -11,12 +11,13 @@ interface InitialState {
 const initialState: InitialState = {
   tasks: [
     {
-      id: "dfjsnfdn",
+      id: "1551sfc51sdv1d1v1sd1d51dfd1v1d",
       isCompleted: true,
-      title: "fgjnj",
-      description: "fdgjnm",
+      title: "Node js",
+      description: "Learning node js is fun",
       priority: "low",
       dueDate: "2025-06-01",
+      assignedTo: null,
     },
   ],
   filter: "all",

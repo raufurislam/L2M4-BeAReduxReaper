@@ -4,7 +4,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: { users: IUser[] } = {
-  users: [],
+  users: [
+    {
+      name: "Ivor",
+      id: "7102e90c-5409-4b5e-aea5-6ec7567d2957",
+    },
+    {
+      name: "Logan",
+      id: "71020c-5409-4b5e-aea5-6ec7567d2957",
+    },
+  ],
 };
 
 const userSlice = createSlice({
