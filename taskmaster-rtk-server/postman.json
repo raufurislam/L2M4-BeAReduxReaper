@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "2bc70f01-824a-42c2-ba2c-b5f075c55579",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28346560",
+		"_collection_link": "https://cloudy-spaceship-160654.postman.co/workspace/Team-Workspace~bc4d3685-422d-409f-8beb-c299230f93b9/collection/28346560-2bc70f01-824a-42c2-ba2c-b5f075c55579?action=share&source=collection_link&creator=28346560"
+	},
+	"item": [
+		{
+			"name": "update by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\": \"Updated Task Title\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/6776c568662cd49ffd6ab583",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"6776c568662cd49ffd6ab583"
+					],
+					"query": [
+						{
+							"key": "priority",
+							"value": "high",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/6776c568662cd49ffd6ab583",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"6776c568662cd49ffd6ab583"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/tasks?searchTerm=x&priority=medium",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "searchTerm",
+							"value": "x"
+						},
+						{
+							"key": "priority",
+							"value": "medium"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"mir\",\r\n  \"description\": \"Complete the CRUD API for task management\",\r\n  \"priority\": \"low\",\r\n  \"dueDate\": \"2024-12-01T18:00:00.000Z\",\r\n  \"isCompleted\": false,\r\n  \"member\": \"John Doe\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
